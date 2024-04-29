@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BloomBert Classifier",
+  "name": "A question classifier based on Bloom's Taxonomy",
   "icons": [
     {
       "src": "favicon.ico",
