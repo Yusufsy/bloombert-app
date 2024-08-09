@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:5000/';
+const API_URL = 'http://flask-env.eba-4ebshsmk.ap-southeast-1.elasticbeanstalk.com/';
 
 const apiClient = axios.create({
     baseURL: API_URL,
