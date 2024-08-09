@@ -5,7 +5,8 @@ import { createTest } from '../api/apiService';
 function CreateTest() {
     const [title, setTitle] = useState('');
     const [questions, setQuestions] = useState('');
-    const navigate = useNavigate(); 
+    const [graduateLevel, setGraduateLevel] = useState('Undergraduate'); // Default to 'Undergraduate'
+    const navigate = useNavigate();
 
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
@@ -19,13 +20,13 @@ function CreateTest() {
 
     const handleCreateTest = async () => {
         try {
-            const response = await createTest(title, questions.split('\n'));
+            const response = await createTest(title, questions.split('\n'), graduateLevel);
             alert(response.message);
             navigate('/my-tests');
         } catch (error) {
             console.error('Error creating test:', error.response?.data?.message || error.message);
         }
-    };    
+    };
 
     return (
         <div className="container mt-5">
@@ -53,6 +54,18 @@ function CreateTest() {
                     value={questions}
                     onChange={(e) => setQuestions(e.target.value)}
                 ></textarea>
+            </div>
+            <div className="form-group">
+                <label htmlFor="graduateLevelInput">Graduate Level:</label>
+                <select
+                    className="form-control"
+                    id="graduateLevelInput"
+                    value={graduateLevel}
+                    onChange={(e) => setGraduateLevel(e.target.value)}
+                >
+                    <option value="Undergraduate">Undergraduate</option>
+                    <option value="Postgraduate">Postgraduate</option>
+                </select>
             </div>
             <button className="btn btn-primary" onClick={handleCreateTest}>Create Test</button>
         </div>

@@ -21,7 +21,7 @@ const Header = ({ isAuthenticated }) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
         <img src={logo} alt="Logo" style={{ height: '40px', marginRight: '10px' }} />
-        BloomBert Classifier
+        QCBloom Classifier
       </Link>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">

@@ -4,19 +4,23 @@ import { Carousel } from 'react-bootstrap';
 import studentEngagement from '../assets/student-engage.jpeg';
 import learningOutcome from '../assets/learning-outcome.webp';
 import aiTeacher from '../assets/ai-teacher.png';
+import slide1 from '../assets/slide1.png';
 import { color } from 'chart.js/helpers';
 
 function Homepage() {
+  const isAuthenticated = !!sessionStorage.getItem('token');
   return (
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-8 mx-auto text-center">
-          <h1>Welcome to Bloom Bert</h1>
+          <h1>Welcome to QCBloom</h1>
           <p className="lead">The innovative platform designed to assist educators in creating, managing, and analyzing educational tests based on Bloom's Taxonomy.</p>
           <p className="lead">Enhance your teaching tools and engage your students more effectively!</p>
           <div>
-            <Link to="/register" className="btn btn-primary btn-lg" style={{marginRight: '50px'}}>Sign Up</Link>
-            <Link to="/classification" className="btn btn-success btn-lg">Try the Classifier</Link>
+            {!isAuthenticated && (
+              <Link to="/register" className="btn btn-primary btn-lg" style={{marginRight: '50px'}}>Sign Up</Link>
+            )}
+            <Link to="/classification" className="btn btn-success btn-lg">Try QCBloom</Link>
           </div>
         </div>
       </div>
@@ -26,7 +30,7 @@ function Homepage() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={aiTeacher}
+                src={slide1}
                 alt="First slide"
               />
               <Carousel.Caption style={carouselCaptionStyle}>
@@ -53,7 +57,7 @@ function Homepage() {
               />
               <Carousel.Caption style={carouselCaptionStyle}>
                 <h3>Drive Learning Outcomes</h3>
-                <p>Drive educational success and achieve learning outcomes with Bloom Bert.</p>
+                <p>Drive educational success and achieve learning outcomes with QCBloom.</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

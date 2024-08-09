@@ -31,7 +31,6 @@ function MyTests() {
             console.error('Error deleting test:', error.response?.data?.message || error.message);
         }
     };
-    
 
     return (
         <div className="container mt-5">
@@ -41,6 +40,7 @@ function MyTests() {
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
+                        <th>Graduate Level</th> {/* Add Graduate Level column */}
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -48,7 +48,8 @@ function MyTests() {
                     {tests?.map(test => (
                         <tr key={test.id}>
                             <td>{test.id}</td>
-                            <td> <Link to={`/edit-test/${test.id}`}>{test.title}</Link></td>
+                            <td><Link to={`/edit-test/${test.id}`}>{test.title}</Link></td>
+                            <td>{test.graduate_level}</td> {/* Display Graduate Level */}
                             <td>
                                 <button onClick={() => handleDeleteTest(test.id)} className="btn btn-danger">Delete</button>
                             </td>

@@ -1,5 +1,5 @@
 {
-  "short_name": "BloomBert Classifier",
+  "short_name": "QCBloom Classifier",
   "name": "A question classifier based on Bloom's Taxonomy",
   "icons": [
     {
